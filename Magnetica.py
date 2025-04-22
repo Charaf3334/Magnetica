@@ -144,7 +144,7 @@ def main():
                 else:
                     print(f"{color.RED}👋 Exiting the program. Don’t be a stranger — come back soon for more! 🚀{Style.RESET_ALL}")
                     time.sleep(1)
-                    break;
+                    break
             except KeyboardInterrupt:
                 print("\n❌")
                 time.sleep(1)
