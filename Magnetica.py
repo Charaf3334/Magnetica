@@ -53,10 +53,19 @@ def forWindows(obj):
 
     print(f"{color.RED}⚠️ qBittorrent not found in default install locations.{Style.RESET_ALL}")
     try:
-        r = input("Do you want to install qBittorrent? (y/n): ")
-        if r in ('y', 'Y'):
-            webbrowser.open("https://www.fosshub.com/qBittorrent.html?dwl=qbittorrent_5.0.5_x64_setup.exe")
-        else:
+        f = 0
+        while True:
+            r = input("Do you want to install qBittorrent? (enter,y/n): ")
+            r = r.strip()
+            if r in ('y', 'Y') or r == '':
+                webbrowser.open("https://www.fosshub.com/qBittorrent.html?dwl=qbittorrent_5.0.5_x64_setup.exe")
+                f = 1
+                break
+            elif r in ('n', 'N'):
+                break
+            else:
+                continue
+        if not f:
             print(f"{color.GREEN}Here’s your magnet link. For the best experience, it's recommended to have {Style.BRIGHT}qBittorrent{Style.NORMAL} installed:\n{obj.downloadLink}{Style.RESET_ALL}")
     except KeyboardInterrupt:
         print("\n❌")
@@ -84,10 +93,19 @@ def forLinux(obj):
 
     print(f"{color.RED}⚠️ qBittorrent not found in default install locations.{Style.RESET_ALL}")
     try:
-        r = input("Do you want to install qBittorrent? (y/n): ")
-        if r in ('y', 'Y'):
-            webbrowser.open("https://www.fosshub.com/qBittorrent.html?dwl=qbittorrent-linux-x64.tar.xz")
-        else:
+        f = 0
+        while True:
+            r = input("Do you want to install qBittorrent? (enter,y/n): ")
+            r = r.strip()
+            if r in ('y', 'Y') or r == '':
+                webbrowser.open("https://www.fosshub.com/qBittorrent.html?dwl=qbittorrent_5.0.5_x64_setup.exe")
+                f = 1
+                break
+            elif r in ('n', 'N'):
+                break
+            else:
+                continue
+        if not f:
             print(f"{color.GREEN}Here’s your magnet link. For the best experience, it's recommended to have {Style.BRIGHT}qBittorrent{Style.NORMAL} installed:\n{obj.downloadLink}{Style.RESET_ALL}")
     except KeyboardInterrupt:
         print("\n❌")
@@ -137,11 +155,19 @@ def main():
                 f"{color.GREEN}Using open source software is a must!{Style.RESET_ALL}")
 
         if flag >= 1:
+            f = 0
             try:
-                r = input(f"{color.YELLOW}🔁 Wanna fetch more torrent links? (y/n): {Style.RESET_ALL}")
-                if r in ('y', 'Y'):
-                    pass
-                else:
+                while True:
+                    r = input(f"{color.YELLOW}🔁 Wanna fetch more torrent links? (enter,y/n): {Style.RESET_ALL}")
+                    r = r.strip()
+                    if r in ('y', 'Y') or r == '':
+                        f = 1
+                        break
+                    elif r not in ('n', 'N'):
+                        continue
+                    else:
+                        break
+                if not f:
                     print(f"{color.RED}👋 Exiting the program. Don’t be a stranger — come back soon for more! 🚀{Style.RESET_ALL}")
                     time.sleep(1)
                     break
@@ -197,8 +223,6 @@ def main():
                             forLinux(obj)
                 elif response.status_code == NOT_FOUND:
                     print(f"{color.RED}❌ Error: Link may be broken!{Style.RESET_ALL}")
-            else:
-                print(f"{color.RED}⚠️ Error: Nothing has been entered!{Style.RESET_ALL}")
             flag += 1
         except KeyboardInterrupt:
             print("\n❌")
