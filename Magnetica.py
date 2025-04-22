@@ -155,8 +155,13 @@ def main():
                 sys.exit(1)
 
         try:
-            target = input(f"{color.CYAN}Find torrents — just enter a keyword: {Style.RESET_ALL}")
-            target = target.strip()
+            while True:
+                target = input(f"{color.CYAN}Find torrents — just enter a keyword: {Style.RESET_ALL}")
+                target = target.strip()
+                if not target:
+                    continue
+                break
+            
             page = 1
 
             if target:
