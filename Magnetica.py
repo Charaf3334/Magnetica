@@ -66,7 +66,7 @@ def forWindows(obj):
             else:
                 continue
         if not f:
-            print(f"{color.GREEN}Here’s your magnet link. For the best experience, it's recommended to have {Style.BRIGHT}qBittorrent{Style.NORMAL} installed:\n{obj.downloadLink}{Style.RESET_ALL}")
+            print(f"{color.YELLOW}Here’s your magnet link. For the best experience, it's recommended to have {Style.BRIGHT}qBittorrent{Style.NORMAL} installed:\n{color.GREEN}{obj.downloadLink}{Style.RESET_ALL}")
     except KeyboardInterrupt:
         print("\n❌")
         time.sleep(1)
@@ -106,7 +106,7 @@ def forLinux(obj):
             else:
                 continue
         if not f:
-            print(f"{color.GREEN}Here’s your magnet link. For the best experience, it's recommended to have {Style.BRIGHT}qBittorrent{Style.NORMAL} installed:\n{obj.downloadLink}{Style.RESET_ALL}")
+            print(f"{color.YELLOW}Here’s your magnet link. For the best experience, it's recommended to have {Style.BRIGHT}qBittorrent{Style.NORMAL} installed:\n{color.GREEN}{obj.downloadLink}{Style.RESET_ALL}")
     except KeyboardInterrupt:
         print("\n❌")
         time.sleep(1)
