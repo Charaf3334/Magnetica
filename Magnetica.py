@@ -55,7 +55,7 @@ def forWindows(obj):
     try:
         f = 0
         while True:
-            r = input("Do you want to install qBittorrent? (enter,y/n): ")
+            r = input(f"{color.YELLOW}Do you want to install qBittorrent? (enter,y/n):{Style.RESET_ALL} ")
             r = r.strip()
             if r in ('y', 'Y') or r == '':
                 webbrowser.open("https://www.fosshub.com/qBittorrent.html?dwl=qbittorrent_5.0.5_x64_setup.exe")
@@ -95,10 +95,18 @@ def forLinux(obj):
     try:
         f = 0
         while True:
-            r = input("Do you want to install qBittorrent? (enter,y/n): ")
+            r = input(f"{color.YELLOW}Do you want to install qBittorrent? (enter,y/n):{Style.RESET_ALL} ")
             r = r.strip()
             if r in ('y', 'Y') or r == '':
-                webbrowser.open("https://www.fosshub.com/qBittorrent.html?dwl=qbittorrent_5.0.5_x64_setup.exe")
+                print("Requires sudo", end="", flush=True)
+                time.sleep(1)
+                print(" .", end="", flush=True)
+                time.sleep(1)
+                print(".", end="", flush=True)
+                time.sleep(1)
+                print(".", flush=True)
+                time.sleep(1)
+                subprocess.run("sudo apt install qbittorrent", shell=True)
                 f = 1
                 break
             elif r in ('n', 'N'):
