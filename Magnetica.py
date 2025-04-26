@@ -67,15 +67,10 @@ def forWindows(obj):
                 continue
         if not f:
             print(f"{color.YELLOW}Here’s your magnet link. For the best experience, it's recommended to have {Style.BRIGHT}qBittorrent{Style.NORMAL} installed:\n{color.GREEN}{obj.downloadLink}{Style.RESET_ALL}")
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         print("\n❌")
         time.sleep(1)
         sys.exit(1)
-    except EOFError:
-        print("\n❌")
-        time.sleep(1)
-        sys.exit(1)
-
 
 def forLinux(obj):
     paths = [
@@ -115,15 +110,10 @@ def forLinux(obj):
                 continue
         if not f:
             print(f"{color.YELLOW}Here’s your magnet link. For the best experience, it's recommended to have {Style.BRIGHT}qBittorrent{Style.NORMAL} installed:\n{color.GREEN}{obj.downloadLink}{Style.RESET_ALL}")
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         print("\n❌")
         time.sleep(1)
         sys.exit(1)
-    except EOFError:
-        print("\n❌")
-        time.sleep(1)
-        sys.exit(1)
-
 
 def isInternetAvailable():
     try:
@@ -179,11 +169,7 @@ def main():
                     print(f"{color.RED}👋 Exiting the program. Don’t be a stranger — come back soon for more! 🚀{Style.RESET_ALL}")
                     time.sleep(1)
                     break
-            except KeyboardInterrupt:
-                print("\n❌")
-                time.sleep(1)
-                sys.exit(1)
-            except EOFError:
+            except (KeyboardInterrupt, EOFError):
                 print("\n❌")
                 time.sleep(1)
                 sys.exit(1)
@@ -232,11 +218,7 @@ def main():
                 elif response.status_code == NOT_FOUND:
                     print(f"{color.RED}❌ Error: Link may be broken!{Style.RESET_ALL}")
             flag += 1
-        except KeyboardInterrupt:
-            print("\n❌")
-            time.sleep(1)
-            sys.exit(1)
-        except EOFError:
+        except (KeyboardInterrupt, EOFError):
             print("\n❌")
             time.sleep(1)
             sys.exit(1)
